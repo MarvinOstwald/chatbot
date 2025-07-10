@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <style>
+      .gradient-text {
+        font-size: 25px;
+        background-image: linear-gradient(to right, rgb(182, 22, 22), red);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .gradient-user {
+        font-size: 30px;
+        background-image: linear-gradient(to right, blue, green);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <div class="topbar">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <i class="bi bi-lightning-charge"></i>
+            <ul class="nav nav-underline">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="index.html"
+                  style="color: black; margin-left: 10px"
+                  >Main</a
+                >
+              </li>
+            </ul>
+
+            <ul class="nav nav-underline" style="margin-left: 10px">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="info.html"
+                  >Infos</a
+                >
+              </li>
+            </ul>
+
+            <ul class="nav nav-underline" style="margin-left: 10px">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="befehle.html"
+                  style="color: black"
+                  >Befehle</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div
+            class="container"
+            style="text-align: center; margin-right: 161px"
+          >
+            <a href="index.html" style="text-decoration: none">
+              <b class="gradient-text"
+                >Chatty Chatbot <i class="bi bi-robot"></i
+              ></b>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <hr style="position: relative; top: -18px" />
+
+    <div class="row" style="margin-top: 40px">
+      <div class="col-sm-3 mb-3 mb-sm-0" style="margin-left: 190px">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Was ist Chatty?</h5>
+            <p class="card-text">
+              Chatty ist ein Twitch-Chatbot, der deinen Stream mit cleveren
+              Features bereichert. <br /><br />
+              Er reagiert auf Chatbefehle, interagiert mit deiner Community und
+              sorgt für Unterhaltung.
+              <br /><br />
+              Für mehr gehe einfach in den Befehle-Tab, um dir die Funktionen
+              anzuschauen
+            </p>
+            <a href="befehle.html" class="btn btn-outline-dark"
+              >Befehle <i class="bi bi-terminal"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Wie fange ich an?</h5>
+            <p class="card-text">
+              Um mit Chatty zu starten, gehe ganz einfach in den Main-Tab.
+              <br /><br />
+              Dort klickst du dann auf Login und wirst zum Twitch-Login
+              weitergeleitet. <br /><br />
+              Sobald du eingeloggt bist, tauchen sowohl eine Chatbox als auch
+              der Button "Starte Chatty" auf. <br /><br />
+              Klicke jetzt einfach auf "Starte Chatty" um den Bot mit deinem
+              Twitch-Chat zu verbinden
+            </p>
+            <a href="index.html" class="btn btn-outline-dark"
+              >Main <i class="bi bi-house"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Liste der Befehle</h5>
+            <p class="card-text">
+              Chatty hat ein paar Befehle. <br /><br />
+              Um diese nachzuschauen, musst du einfach nur unten auf den Button
+              "Zu den Befehlen" klicken. Oder ihr klickt einfach auf den Tab
+              Befehle. <br /><br />
+              Dort ist dann eine Liste mit allen Befehlen, die Chatty hat.
+            </p>
+            <a href="befehle.html" class="btn btn-outline-dark"
+              >Zu den Befehlen <i class="bi bi-terminal"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
