@@ -165,9 +165,11 @@
     <script>
       const CLIENT_ID = "c2g39epdg9tf9y24zlbz8lzn484fc7";
       let token;
+      let startTime = new Date();
       let userId;
       let data;
       let interval5;
+      let messageFiveMinutes;
       const loginButton = document.getElementById("login-button");
       const logoutButton = document.getElementById("logout-button");
       const startChatbot = document.getElementById("start-bot");
@@ -233,8 +235,6 @@
         console.log(data);
 
         function fiveMinuteMessage() {
-          const messageFiveMinutes =
-            "Diese Nachricht hier wird alle 5 Minuten automaisch in den Chat geschickt!";
           sendMessage(messageFiveMinutes);
         }
         if (data.metadata.message_type === "notification") {
@@ -257,12 +257,22 @@
 
           if (message === "!start5") {
             if (isBroadcaster) {
-              interval5 = setInterval(fiveMinuteMessage, 300000);
+              interval5 = setInterval(fiveMinuteMessage, 10000);
             }
           }
           if (message === "!stop5") {
             if (isBroadcaster) {
               clearInterval(interval5);
+            }
+          }
+
+          if (message.startsWith("!message5")) {
+            if (isBroadcaster) {
+              const parts = message.split(" ");
+              messageFiveMinutes = parts.slice(1).join(" ");
+              if (messageFiveMinutes) {
+                sendMessage("Die neue 5 Minuten Nachricht ist jetzt gesetzt!");
+              }
             }
           }
 
@@ -395,6 +405,16 @@
             } else {
               sendMessage(`${userName} du musst eine Zahl angeben!`);
             }
+          }
+
+          if (message === "!botuptime") {
+            const now = new Date();
+            const diffMs = now - startTime;
+            const minutes = Math.floor(diffMs / 60000);
+            const seconds = Math.floor((diffMs % 60000) / 1000);
+            sendMessage(
+              `Bot ist seit ${minutes} Minuten und ${seconds} Sekunden aktiv.`
+            );
           }
 
           //const messages = data.payload.event.message.text;
