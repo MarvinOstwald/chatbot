@@ -169,7 +169,7 @@
       let userId;
       let data;
       let interval5;
-      let messageFiveMinutes;
+      let message20Minutes;
       const loginButton = document.getElementById("login-button");
       const logoutButton = document.getElementById("logout-button");
       const startChatbot = document.getElementById("start-bot");
@@ -234,8 +234,8 @@
         data = JSON.parse(message.data);
         console.log(data);
 
-        function fiveMinuteMessage() {
-          sendMessage(messageFiveMinutes);
+        function twentyMinuteMessage() {
+          sendMessage(message20Minutes);
         }
         if (data.metadata.message_type === "notification") {
           const notificationElement = document.createElement("p");
@@ -255,23 +255,26 @@
             textBoxMessages.firstChild
           );
 
-          if (message === "!start5") {
+          if (message === "!start20") {
             if (isBroadcaster) {
-              interval5 = setInterval(fiveMinuteMessage, 10000);
+              interval20 = setInterval(twentyMinuteMessage, 1200000);
+              sendMessage("Der 20 Minuten autosend Text ist gestartet");
+              sendMessage(message20Minutes);
             }
           }
-          if (message === "!stop5") {
+          if (message === "!stop20") {
             if (isBroadcaster) {
-              clearInterval(interval5);
+              clearInterval(interval20);
+              sendMessage("Der 20 Minuten autosend Text ist gestoppt");
             }
           }
 
-          if (message.startsWith("!message5")) {
+          if (message.startsWith("!message20")) {
             if (isBroadcaster) {
               const parts = message.split(" ");
-              messageFiveMinutes = parts.slice(1).join(" ");
-              if (messageFiveMinutes) {
-                sendMessage("Die neue 5 Minuten Nachricht ist jetzt gesetzt!");
+              message20Minutes = parts.slice(1).join(" ");
+              if (message20Minutes) {
+                sendMessage("Die neue 20 Minuten Nachricht ist jetzt gesetzt!");
               }
             }
           }
