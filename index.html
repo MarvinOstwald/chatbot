@@ -242,7 +242,9 @@
           const message = data.payload.event.message.text;
           const userName = data.payload.event.chatter_user_name;
           const heute = new Date();
-          const userRank = data.payload.event.badges.at(0).set_id;
+          const isBroadcaster = data.payload.event.badges.some(
+            (badge) => badge.set_id === "broadcaster"
+          );
           const timeMessage = `${heute.getHours()}:${heute
             .getMinutes()
             .toString()
@@ -254,12 +256,12 @@
           );
 
           if (message === "!start5") {
-            if (userRank === "broadcaster") {
+            if (isBroadcaster) {
               interval5 = setInterval(fiveMinuteMessage, 300000);
             }
           }
           if (message === "!stop5") {
-            if (userRank === "broadcaster") {
+            if (isBroadcaster) {
               clearInterval(interval5);
             }
           }
@@ -288,7 +290,7 @@
             sendMessage(werbung);
           }
 
-          if (userRank === "broadcaster") {
+          if (isBroadcaster) {
             if (message === "!nuke") {
               const nukeMessage = "NUKED! NUKED! NUKED! NUKED! NUKED!";
               for (let i = 0; i < 100; i++) {
